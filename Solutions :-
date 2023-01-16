@@ -64,6 +64,11 @@ Next, I would iterate through the rows and columns of the input, checking if the
 If the cell value is a formula, I would use a library such as SymPy to calculate the formula and retrieve the result. 
 If the cell value is a value, I would simply copy it over to the output. Finally, I would write the output to a new CSV file.
 
+Q.What type of errors you would you check for?
+Ans. When handling the CSV input and output, I would check for errors such as invalid file paths, incorrect file formats, and missing or extra columns. 
+I would also check for errors when parsing the formulas, such as invalid syntax or missing variables. 
+I would check for errors when calculating the formulas, such as dividing by zero or using unknown functions.
+
 
 
 
