@@ -1,0 +1,70 @@
+Coding Solve :-
+
+Q1.Create an API that lists the title, description based on the category passed as an input parameter.
+
+Answer:-
+
+from flask import Flask, jsonify, request
+app = Flask(_name_)
+
+items = [
+    {"title": "A", "description": "descrip1", "category": "cateX"},
+    {"title": "B", "description": "descrip2", "category": "cateY"},
+    {"title": "C", "description": "descrip3", "category": "cateZ"}
+]
+
+@app.route('/items')
+def get_items():
+    category = request.args.get('category')
+    if category:
+        filtered_items = [item for item in items if item['category'] == category]
+    else:
+        filtered_items = items
+    return jsonify(filtered_items)
+
+if _name_ == '_main_':
+    app.run()
+    
+Q2. Create an API that would save a new entry with all the relevant properties which retrieves values from the endpoint GET /entries.
+
+Answer:-
+
+from flask import Flask, jsonify, request
+app = Flask(_name_)
+
+entries = []
+
+@app.route('/entries', methods=['GET', 'POST'])
+def entries_route():
+    if request.method == 'GET':
+        return jsonify(entries)
+    if request.method == 'POST':
+        new_entry = request.get_json()
+        entries.append(new_entry)
+        return jsonify({"msg": "Entry add successful"})
+
+if _name_ == '_main_':
+    app.run()
+    
+Q3. Question: what are the key things you would consider when creating/consuming an API to ensure that it is secure and reliable?  
+
+Answer :-
+1.Authentication and Authorization: Implementing proper authentication and authorization methods to ensure that only authorized users can access the API. 
+This can include using tokens, API keys, or other forms of authentication.
+
+2.Input validation: Validate all input data to prevent malicious attacks, such as SQL injection or cross-site scripting (XSS).
+
+3.Secure communications: Use HTTPS to encrypt all communications between the client and the API.
+
+Theory Answer :-
+
+Q.How will you tackle the challenge above?
+Ans. To tackle the challenge above, I would first read the CSV input using a CSV library, such as pandas or csv. 
+Next, I would iterate through the rows and columns of the input, checking if the cell value is a formula or a value. 
+If the cell value is a formula, I would use a library such as SymPy to calculate the formula and retrieve the result. 
+If the cell value is a value, I would simply copy it over to the output. Finally, I would write the output to a new CSV file.
+
+
+
+
+
